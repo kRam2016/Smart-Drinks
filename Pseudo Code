@@ -1,0 +1,41 @@
+#include <iostream.h>
+#define CIRCUMFERENCE 5		//Add value of CIRCUMFERENCE
+#define BUFFER 0.8
+
+int irDistance(){
+	int distance;
+	//add code for encoder here
+	return distance;
+}
+/*	//if finding time and then distance from rpm;
+
+int calcLinearDistance(){
+	float rpm = //add encoder code
+	float t1 = 0, t2 = 0, time = 0, n = 0;
+	int d = 0;
+	t1 = millis();		//Do this when button is pressed
+	t2 = millis();		//Do this when ir Sensor detects change
+	time = t2-t1;
+
+	n = rpm * time/1000.0;
+	d = n * CIRCUMFERENCE;
+	return d;
+}
+
+
+*/
+
+int main(){
+	float time = 0;
+	int distance = 0;
+	distance = irDistance();	//Implementing encoder to find n IRT, return linear distance;
+	/*	//if finding time and then distance from rpm;
+		distance = calcLinearDistance();
+	*/
+
+	//add Ultra Code
+	// Feed initial distance, till cur > ((h-d)*BUFFER), run pump
+	//RETURN TYPE MUST BE FLOAT
+	//Stop pump
+	return 0;
+}
