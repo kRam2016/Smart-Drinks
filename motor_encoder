@@ -1,0 +1,58 @@
+int pin = 10;
+int isEncoder = 0; 
+int rotations = 0; 
+unsigned long currentMillis;
+unsigned long startMillis; 
+
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode (pin, INPUT);
+  Serial.begin(9600);
+  startMillis = millis();
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  int counter = 0; 
+  currentMillis = millis();
+
+  while (currentMillis - startMillis < 10000)
+  {
+    while (counter < 24 || currentMillis < 10000) 
+    {
+      isEncoder = digitalRead(pin);
+     
+      if (isEncoder == 1) 
+      {
+         counter ++; 
+         Serial.println(isEncoder); 
+         Serial.print("Counter:");
+        Serial.println(counter); 
+         while (isEncoder == 1)
+         {
+          isEncoder = digitalRead(pin);
+         }
+      }
+      //Serial.println(isEncoder); 
+  
+      
+      
+      /*while (isEncoder == 0)
+      {
+      Serial.println("Im Stuck!");  
+      }
+      counter++;
+      
+      
+      Serial.println("Second: ");
+      
+      Serial.println(isEncoder); */
+    }
+    rotations++;
+  }
+  
+  Serial.println (rotations + counter/24.0);
+  exit(0);
+}
